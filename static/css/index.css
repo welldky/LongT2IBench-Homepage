@@ -317,3 +317,35 @@ body.bg-gradient {
 #BibTeX .btn-copy.copied{
   background: #16a34a; /* 复制成功后的绿色提示 */
 }
+
+.button.btn-huggingface {
+  background: #fbbf24; /* 黄色 */
+  border-color: #fbbf24;
+  color: #000; /* 黑色文字 */
+}
+.button.btn-huggingface .icon i { color: #000; }
+.button.btn-huggingface:hover { filter: brightness(1.05); }
+
+
+.publication-title .inline-logo {
+  /* --- 关键对齐属性 --- */
+  vertical-align: middle;  /* 尝试让图片的中线与文字的中线对齐 */
+
+  /* --- 尺寸控制 --- */
+  /* Bulma 框架中 .title.is-1 的字体大小是 3rem，设置同样的高度可以让 Logo 和文字大小匹配 */
+  height: 3.5rem;
+  width: auto;             /* 宽度自动，保持比例 */
+
+  /* --- 间距控制 --- */
+  margin-right: 0rem;    /* 在 Logo 和后面的文字之间增加一点空隙 */
+
+  /* --- 微调（可选） --- */
+  /* 如果 vertical-align: middle 效果不完美，可以用 transform 微调 */
+  /* transform: translateY(-3px); */
+}
+
+.acceptance-badge {
+  margin-top: 1rem; /* 推开上方标题 */
+  margin-bottom: 1rem; /* 推开下方内容 */
+  text-align: center; /* 居中对齐 */
+}

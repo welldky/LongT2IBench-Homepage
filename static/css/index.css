@@ -133,5 +133,187 @@ body {
   font-size: smaller;
 }
 
+/* 主题色 */
+:root{
+  --fg-primary:#6C63FF;
+  --fg-secondary:#00BFA6;
+  --fg-accent:#FF7A59;
+  --fg-info:#0ea5e9;
+  --fg-dark:#2B2D42;
+}
 
+/* 章节标题：图标与标题拉开距离并着色 */
+.section-title{
+  display: flex;                 /* 从 inline-flex 改为 flex */
+  align-items: center;
+  justify-content: center;       /* 水平居中 */
+  gap: .6rem;                    /* 图标与文字间距 */
+  width: 100%;                   /* 占满一行，便于居中 */
+  text-align: center;
+}
+.section-title .icon i{
+  color: var(--fg-primary);
+}
 
+/* 居中轮播整体，并给内部 carousel 一个可控宽度 */
+.carousel-container{
+  display: flex;
+  justify-content: center;       /* 居中内部 carousel */
+  overflow: hidden;
+}
+.carousel-container .carousel{
+  width: 720px;                  /* 目标展示宽度 */
+  max-width: 100%;               /* 小屏自适应 */
+}
+
+/* 强制每次只显示一张，避免侧边漏出 */
+.carousel .item{
+  flex-basis: 100% !important;
+  flex-grow: 0 !important;
+  flex-shrink: 0 !important;
+}
+.carousel .item img{
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* 四个按钮配色（Paper/Code/arXiv/Dataset） */
+.button.btn-paper{
+  background:#003973; border-color:#003973; color:#fff;
+}
+.button.btn-paper .icon i{ color:#fff; }
+.button.btn-paper:hover{ filter: brightness(1.05); }
+
+.button.btn-code{
+  background:#24292e; border-color:#24292e; color:#fff;
+}
+.button.btn-code .icon i{ color:#fff; }
+.button.btn-code:hover{ filter: brightness(1.08); }
+
+.button.btn-arxiv{
+  background:#b31b1b; 
+  border-color:#b31b1b; color:#fff;
+}
+.button.btn-arxiv .icon i{ color:#fff; }
+.button.btn-arxiv:hover{ filter: brightness(1.05); }
+
+.button.btn-data{
+  background:linear-gradient(90deg,#06b6d4,#22c55e);
+  border-color:transparent; color:#fff;
+}
+.button.btn-data .icon i{ color:#fff; }
+.button.btn-data:hover{ filter: brightness(1.06); }
+
+/* 细粒度/定性部分标签与彩色小图标 */
+.fg-label{
+  margin-bottom:.5rem;
+  display:flex; justify-content:center; align-items:center; gap:.4rem;
+  font-weight:600;
+}
+.fg-label .icon{ line-height:1; }
+
+/* 不同任务的图标颜色（作用到 .icon，兼容 <i> 与 <svg> 渲染） */
+.fg-label.deblur  .icon{ color:#ff7a59 !important; }  /* 橙色 */
+.fg-label.dehaze  .icon{ color:#00bfa6 !important; }  /* 青绿 */
+.fg-label.denoise .icon{ color:#6c63ff !important; }  /* 紫色 */
+.fg-label.derain  .icon{ color:#1d4ed8 !important; }  /* 蓝色 */
+.fg-label.mix     .icon{ color:#f59e0b !important; }  /* 金色 */
+.fg-label.sr      .icon{ color:#ef4444 !important; }  /* 红色 */
+
+/* 如需同时兼容极端情况，可补充对 i/svg 的兜底 */
+.fg-label .icon i,
+.fg-label .icon svg{ color: inherit !important; fill: currentColor !important; }
+
+/* 章节标题图标着色与间距（兼容 <i>/<svg> 渲染） */
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem; /* 图标与标题距离 */
+}
+.section-title .icon { margin-right: 0; line-height: 1; }
+
+/* 默认主色（若未被下面的专项颜色覆盖） */
+.section-title .icon,
+.section-title .icon i,
+.section-title .icon svg {
+  color: var(--fg-primary) !important;
+  fill: currentColor !important;
+}
+
+/* 针对各章节的彩色图标 */
+.section-title .fa-file-alt   { color: #f59e0b !important; } /* Abstract - 琥珀 */
+.section-title .fa-chart-line { color: #22c55e !important; } /* Preliminary Validation Analysis - 绿色 */
+.section-title .fa-cubes      { color: #6366f1 !important; } /* FGResQ - 靛紫 */
+.section-title .fa-flask      { color: #06b6d4 !important; } /* Experiments - 青色 */
+.section-title .fa-images     { color: #ef4444 !important; } /* Fine-grained Examples - 红色 */
+.section-title .fa-eye        { color: #a855f7 !important; } /* Qualitative Analysis - 紫色 */
+
+/* 页面背景（任选其一：bg-solid | bg-gradient） */
+body.bg-solid {
+  background: #f5f7ff; /* 纯色背景，可自定义 */
+}
+
+body.bg-gradient {
+  background: linear-gradient(135deg, #f3f7ff 0%, #f5fff7 50%, #fff5f5 100%);
+  background-attachment: fixed; /* 平滑滚动，不随内容抖动 */
+}
+
+/* 让各区块透出全局背景（覆盖 Bulma 的 is-light） */
+.hero,
+.section.hero,
+.hero.is-light,
+.section.hero.is-light {
+  background: transparent !important;
+}
+
+/* 提升可读性：表格等半透明白底 */
+.table {
+  background-color: rgba(255, 255, 255, 0.514);
+  backdrop-filter: saturate(120%) blur(2px);
+  border-radius: 8px;
+}
+
+/* 可选：内容块轻微阴影，增强层次 */
+.container .content,
+.publication-venue,
+.publication-authors {
+  background: transparent; /* 如需卡片效果可改为 rgba(255,255,255,.85) */
+}
+
+/* BibTeX 卡片样式：圆角边框与阴影 */
+#BibTeX pre {
+  border-radius: 10px;
+  border: 1px solid color-mix(in oklab, var(--fg-primary) 30%, #ffffff);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1rem 1.25rem;
+  box-shadow: 0 8px 22px rgba(0,0,0,.06);
+  overflow: auto;
+}
+
+#BibTeX code {
+  background: transparent;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+#BibTeX .bibtex-card{
+  position: relative;
+}
+#BibTeX .btn-copy{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(90deg, var(--fg-primary), var(--fg-secondary));
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.35rem 0.6rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+}
+#BibTeX .btn-copy .icon i{ color:#fff; }
+#BibTeX .btn-copy.copied{
+  background: #16a34a; /* 复制成功后的绿色提示 */
+}

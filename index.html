@@ -49,7 +49,7 @@
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
 </head>
-<body>
+<body class="bg-gradient">  <!-- 选择渐变背景；若想用纯色，可改为 bg-solid -->
 
 
   <section class="hero">
@@ -57,7 +57,16 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Fine-grained Image Quality Assessment for Perceptual Image Restoration</h1>
+            <h1 class="title is-1 publication-title">
+              Fine-grained Image Quality Assessment for Perceptual Image Restoration
+            </h1>
+            <!-- 新增：AAAI 2026 接收徽章 -->
+            <div class="acceptance-badge">
+              <span class="tag is-medium is-info is-light">
+                <span class="icon"><i class="fas fa-award"></i></span>
+                <span>AAAI 2026 Accepted</span>
+              </span>
+            </div>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
@@ -73,12 +82,13 @@
                 <a href="https://faculty.xidian.edu.cn/cpf/" target="_blank">Pengfei Chen</a><sup>1</sup>,
               </span>
               <span class="author-block">
-                <a href="https://web.xidian.edu.cn/ldli/" target="_blank">Leida Li</a><sup>1,†</sup>
+                <a href="https://web.xidian.edu.cn/ldli/" target="_blank">Leida Li</a><sup>1,2†</sup>
               </span>
                   </div>
 
                   <div class="is-size-5 publication-authors">
                     <span class="author-block"><sup>1</sup>School of Artificial Intelligence, Xidian University</span>
+                    <span class="author-block"><sup>2</sup>State Key Lab. of Electromechanical Integrated Manufacturing of High-Performance Electronic Equipments,Xidian University</span>
                     <span class="eql-cntrb"><small><br><sup>*</sup>Equal Contribution, <sup>†</sup>Corresponding Author</small></span>
                   </div>
 
@@ -87,40 +97,56 @@
                          <!-- Arxiv PDF link -->
                       <span class="link-block">
                         <a href="https://arxiv.org/pdf/2508.14475.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
+                           class="external-link button is-normal is-rounded btn-paper">
+                          <span class="icon">
+                            <i class="fas fa-file-pdf"></i>
+                          </span>
+                          <span>Paper</span>
+                        </a>
+                      </span>
 
-                  <!-- Github link -->
-                  <span class="link-block">
-                    <a href="https://github.com/sxfly99/FGResQ" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
+                      <!-- Github link -->
+                      <span class="link-block">
+                        <a href="https://github.com/sxfly99/FGResQ" target="_blank"
+                           class="external-link button is-normal is-rounded btn-code">
+                          <span class="icon">
+                            <i class="fab fa-github"></i>
+                          </span>
+                          <span>Code</span>
+                        </a>
+                      </span>
 
-                <!-- ArXiv abstract Link -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/2508.14475" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
+                      <!-- ArXiv abstract Link -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/abs/2508.14475" target="_blank"
+                           class="external-link button is-normal is-rounded btn-arxiv">
+                          <span class="icon">
+                            <i class="ai ai-arxiv"></i>
+                          </span>
+                          <span>arXiv</span>
+                        </a>
+                      </span>
+
+                      <!-- Dataset Link-->
+                      <span class="link-block">
+                        <a href="https://sxfly99.github.io/FGResQ-Homepage/" target="_blank"
+                           class="external-link button is-normal is-rounded btn-data">
+                          <span class="icon">
+                            <i class="fas fa-database"></i>
+                          </span>
+                          <span>Dataset (Coming Soon)</span>
+                        </a>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
   </div>
 </section>
 
@@ -134,10 +160,13 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+        <h2 class="title is-3 section-title">
+          <span class="icon is-small"><i class="fas fa-file-alt"></i></span>
+          <span>Abstract</span>
+        </h2>
         <div class="content has-text-justified">
           <p>
-          Recent years have witnessed remarkable achievements in perceptual image restoration (IR), creating an urgent demand for accurate image quality assessment (IQA), which is essential for both performance comparison and algorithm optimization. Unfortunately, the existing IQA metrics exhibit inherent weakness for IR task, particularly when distinguishing fine-grained quality differences among restored images. To address this dilemma, we contribute the first-of-its-kind fine-grained image quality assessment dataset for image restoration, termed <b>FGRestore</b>, comprising 18,408 restored images across six common IR tasks. Beyond conventional scalar quality scores, FGRestore was also annotated with 30,886 fine-grained pairwise preferences. Based on FGRestore, a comprehensive benchmark was conducted on the existing IQA metrics, which reveal significant inconsistencies between score-based IQA evaluations and the fine-grained restoration quality. Motivated by these findings, we further propose  <b>FGResQ</b>, a new IQA model specifically designed for image restoration, which features both coarse-grained score regression and fine-grained quality ranking. Extensive experiments and comparisons demonstrate that FGResQ significantly outperforms state-of-the-art IQA metrics. Data and code will be publicly available.
+          Recent years have witnessed remarkable achievements in perceptual image restoration (IR), creating an urgent demand for accurate image quality assessment (IQA), which is essential for both performance comparison and algorithm optimization. Unfortunately, the existing IQA metrics exhibit inherent weakness for IR task, particularly when distinguishing fine-grained quality differences among restored images. To address this dilemma, we contribute the first-of-its-kind fine-grained image quality assessment dataset for image restoration, termed \textbf{FGRestore}, comprising 18,408 restored images across six common IR tasks. Beyond conventional scalar quality scores, FGRestore was also annotated with 30,886 fine-grained pairwise preferences. Based on FGRestore, a comprehensive benchmark was conducted on the existing IQA metrics, which reveal significant inconsistencies between score-based IQA evaluations and the fine-grained restoration quality. Motivated by these findings, we further propose \textbf{FGResQ}, a new IQA model specifically designed for image restoration, which features both coarse-grained score regression and fine-grained quality ranking. Extensive experiments and comparisons demonstrate that FGResQ significantly outperforms state-of-the-art IQA metrics. Codes and model weights have been released in https://sxfly99.github.io/FGResQ-Homepage.
           </p>
           <section class="hero teaser">
             <div class="container is-max-desktop">
@@ -158,7 +187,10 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Preliminary Validation Analysis</h2>
+        <h2 class="title is-3 section-title">
+          <span class="icon is-small"><i class="fas fa-chart-line"></i></span>
+          <span>Preliminary Validation Analysis</span>
+        </h2>
         <div class="content has-text-justified">
           <p>
             In image restoration tasks, both algorithm comparison and optimization frequently involve evaluating images with subtle quality differences. Algorithm comparison requires distinguishing between restoration results with marginal quality differences, while parameter optimization involves incremental quality changes that demand sensitive assessment methods to identify optimal configurations. To investigate whether existing IQA methods can objectively capture fine-grained quality differences in IR task, we conduct a comprehensive computational analysis on established IQA datasets. Specifically, we evaluate state-of-the-art IQA methods to assess their fine-grained discrimination capabilities.
@@ -203,7 +235,7 @@
                   <td>BRISQUE</td><td>-0.142</td><td>0.025</td><td>0.125</td><td>0.035</td><td>0.131</td><td>0.185</td>
                 </tr>
                 <tr>
-                  <td>DB-CNN</td><td>-0.157</td><td>0.321</td><td>0.353</td><td>0.330</td><td>-0.016</td><td>0.636</td>
+                  <td>DB-CNN</td><td>-0157</td><td>0.321</td><td>0.353</td><td>0.330</td><td>-0.016</td><td>0.636</td>
                 </tr>
                 <tr>
                   <td>HyperIQA</td><td>0.100</td><td>0.274</td><td>0.314</td><td>0.292</td><td>0.032</td><td>0.584</td>
@@ -237,7 +269,10 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">FGResQ</h2>
+        <h2 class="title is-3 section-title">
+          <span class="icon is-small"><i class="fas fa-cubes"></i></span>
+          <span>FGResQ</span>
+        </h2>
         <div class="content has-text-justified">
           <p>
             Based on FGRestore, we propose FGResQ, a new fine-grained image quality assessment model for perceptual image restoration evaluation. FGResQ consists of two main components: (a) Degradation-aware Feature Learning that incorporates restoration task knowledge to enable unified evaluation across multiple IR tasks, and (b) Dual-branch Quality Prediction that simultaneously handles both coarse-grained score regression and fine-grained pairwise ranking.
@@ -255,7 +290,10 @@
   <!-- Performance Comparison Table -->
   <section class="section" id="Experiments">
     <div class="container is-max-desktop content" style="text-align:center;">
-      <h2 class="title" style="text-align:center;">Experiments</h2>
+      <h2 class="title section-title" style="text-align:center;">
+        <span class="icon is-small"><i class="fas fa-flask"></i></span>
+        <span>Experiments</span>
+      </h2>
       <p style="text-align:center;">Performance comparison on FGRestore dataset across different IR tasks. "-" indicates no reference images available.</p>
       <div style="overflow-x:auto; width:100%; text-align:center;">
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" style="font-size:0.85em; vertical-align:middle; min-width:1800px; margin-left:auto; margin-right:auto;">
@@ -305,32 +343,47 @@
 
 <section class="section hero is-light">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Fine-grained Examples</h2>
+    <h2 class="title is-3 has-text-centered section-title">
+      <span class="icon is-small"><i class="fas fa-images"></i></span>
+      <span>Fine-grained Examples</span>
+    </h2>
     <div class="carousel-container" style="max-width: 720px; margin: auto;">
       <div id="carousel-fine-grained" class="carousel">
         <div class="item">
-          <p class="has-text-centered">Deblurring</p>
-          <img src="static/sup_figs/example_deblur_01.png" alt="Deblur Example">
+          <p class="has-text-centered fg-label deblur">
+            <span class="icon is-small"><i class="fas fa-broom"></i></span> Deblurring
+          </p>
+          <img class="fg-image" src="static/sup_figs/example_deblur_01.png" alt="Deblur Example">
         </div>
         <div class="item">
-          <p class="has-text-centered">Dehazing</p>
-          <img src="static/sup_figs/example_dehazing_01.png" alt="Dehazing Example">
+          <p class="has-text-centered fg-label dehaze">
+            <span class="icon is-small"><i class="fas fa-cloud"></i></span> Dehazing
+          </p>
+          <img class="fg-image" src="static/sup_figs/example_dehazing_01.png" alt="Dehazing Example">
         </div>
         <div class="item">
-          <p class="has-text-centered">Denoising</p>
-          <img src="static/sup_figs/example_denoise_01.png" alt="Denoise Example">
+          <p class="has-text-centered fg-label denoise">
+            <span class="icon is-small"><i class="fas fa-sliders-h"></i></span> Denoising
+          </p>
+          <img class="fg-image" src="static/sup_figs/example_denoise_01.png" alt="Denoise Example">
         </div>
         <div class="item">
-          <p class="has-text-centered">Deraining</p>
-          <img src="static/sup_figs/example_derain_01.png" alt="Derain Example">
+          <p class="has-text-centered fg-label derain">
+            <span class="icon is-small"><i class="fas fa-umbrella"></i></span> Deraining
+          </p>
+          <img class="fg-image" src="static/sup_figs/example_derain_01.png" alt="Derain Example">
         </div>
         <div class="item">
-          <p class="has-text-centered">Mixture Restoration</p>
-          <img src="static/sup_figs/example_mix_01.png" alt="Mix Restoration Example">
+          <p class="has-text-centered fg-label mix">
+            <span class="icon is-small"><i class="fas fa-layer-group"></i></span> Mixture Restoration
+          </p>
+          <img class="fg-image" src="static/sup_figs/example_mix_01.png" alt="Mix Restoration Example">
         </div>
         <div class="item">
-          <p class="has-text-centered">Super-Resolution</p>
-          <img src="static/sup_figs/example_sr_01.png" alt="Super Resolution Example">
+          <p class="has-text-centered fg-label sr">
+            <span class="icon is-small"><i class="fas fa-search-plus"></i></span> Super-Resolution
+          </p>
+          <img class="fg-image" src="static/sup_figs/example_sr_01.png" alt="Super Resolution Example">
         </div>
       </div>
     </div>
@@ -341,32 +394,47 @@
 <!-- Qualitative Analysis -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Qualitative Analysis</h2>
+    <h2 class="title is-3 has-text-centered section-title">
+      <span class="icon is-small"><i class="fas fa-eye"></i></span>
+      <span>Qualitative Analysis</span>
+    </h2>
     <div class="carousel-container" style="max-width: 720px; margin: auto;">
       <div id="carousel-qualitative" class="carousel">
         <div class="item">
-          <p class="has-text-centered">Deblurring</p>
-          <img src="static/sup_figs/quanli_deblur_01.png" alt="Deblur Qualitative">
+          <p class="has-text-centered fg-label deblur">
+            <span class="icon is-small"><i class="fas fa-broom"></i></span> Deblurring
+          </p>
+          <img class="fg-image" src="static/sup_figs/quanli_deblur_01.png" alt="Deblur Qualitative">
         </div>
         <div class="item">
-          <p class="has-text-centered">Dehazing</p>
-          <img src="static/sup_figs/quanli_dehaze_01.png" alt="Dehaze Qualitative">
+          <p class="has-text-centered fg-label dehaze">
+            <span class="icon is-small"><i class="fas fa-cloud"></i></span> Dehazing
+          </p>
+          <img class="fg-image" src="static/sup_figs/quanli_dehaze_01.png" alt="Dehaze Qualitative">
         </div>
         <div class="item">
-          <p class="has-text-centered">Denoising</p>
-          <img src="static/sup_figs/quanli_denoise_01.png" alt="Denoise Qualitative">
+          <p class="has-text-centered fg-label denoise">
+            <span class="icon is-small"><i class="fas fa-sliders-h"></i></span> Denoising
+          </p>
+          <img class="fg-image" src="static/sup_figs/quanli_denoise_01.png" alt="Denoise Qualitative">
         </div>
         <div class="item">
-          <p class="has-text-centered">Deraining</p>
-          <img src="static/sup_figs/quanli_derain_01.png" alt="Derain Qualitative">
+          <p class="has-text-centered fg-label derain">
+            <span class="icon is-small"><i class="fas fa-umbrella"></i></span> Deraining
+          </p>
+          <img class="fg-image" src="static/sup_figs/quanli_derain_01.png" alt="Derain Qualitative">
         </div>
         <div class="item">
-          <p class="has-text-centered">Mixture Restoration</p>
-          <img src="static/sup_figs/quanli_mix_01.png" alt="Mix Restoration Qualitative">
+          <p class="has-text-centered fg-label mix">
+            <span class="icon is-small"><i class="fas fa-layer-group"></i></span> Mixture Restoration
+          </p>
+          <img class="fg-image" src="static/sup_figs/quanli_mix_01.png" alt="Mix Restoration Qualitative">
         </div>
         <div class="item">
-          <p class="has-text-centered">Super-Resolution</p>
-          <img src="static/sup_figs/quanli_sr_01.png" alt="Super Resolution Qualitative">
+          <p class="has-text-centered fg-label sr">
+            <span class="icon is-small"><i class="fas fa-search-plus"></i></span> Super-Resolution
+          </p>
+          <img class="fg-image" src="static/sup_figs/quanli_sr_01.png" alt="Super Resolution Qualitative">
         </div>
       </div>
     </div>
@@ -376,16 +444,30 @@
 
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>@article{sheng2025fg,
+  <div class="container is-max-desktop content">
+    <h2 class="title section-title">
+      <span class="icon is-small"><i class="fas fa-book"></i></span>
+      <span>BibTeX</span>
+    </h2>
+
+    <div class="bibtex-card">
+      <button id="bibtex-copy-btn" class="button is-small btn-copy" type="button" title="Copy BibTeX">
+        <span class="icon"><i class="fas fa-copy"></i></span>
+        <span>Copy</span>
+      </button>
+
+      <pre><code id="bibtex-code">
+@article{sheng2025fgresq,
   title={Fine-grained Image Quality Assessment for Perceptual Image Restoration},
   author={Sheng, Xiangfei and Pan, Xiaofeng and Yang, Zhichao and Chen, Pengfei and Li, Leida},
   journal={arXiv preprint arXiv:2508.14475},
   year={2025}
 }
-</code></pre>
+      </code></pre>
     </div>
+  </div>
+</section>
+
   <footer class="footer">
   <div class="container">
     <div class="columns is-centered">

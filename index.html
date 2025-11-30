@@ -172,7 +172,7 @@
             <h1 class="title is-2 publication-title">LongT2IBench：A Benchmark for Evaluating Long Text-to-Image Generation
               with<br> Graph-structured Annotations</h1>
             <div class="acceptance-badge">
-              <span class="tag is-medium is-info is-light">
+              <span class="tag is-large is-info is-light">
                 <span class="icon"><i class="fas fa-award"></i></span>
                 <span>AAAI 2026 Oral</span>
               </span>
@@ -193,6 +193,7 @@
               <span class="author-block">
                 <a href="https://github.com/sxfly99" target="_blank">Xiangfei Sheng</a><sup>1</sup>,
               </span>
+              <br>
               <span class="author-block">
                 <a href="https://faculty.xidian.edu.cn/cpf/" target="_blank">Pengfei Chen</a><sup>1*</sup>,
               </span>
@@ -207,7 +208,7 @@
                   <sup>2</sup>State Key Laboratory of Electromechanical Integrated Manufacturing of
                   High-Performance Electronic Equipments, Xidian University
               </span>
-              <span class="eql-cntrb"><small><sup>*</sup>Corresponding authors</small></span>
+              <!-- <span class="eql-cntrb"><small><sup>*</sup>Corresponding authors</small></span> -->
             </div>
 
                   <div class="column has-text-centered">
@@ -245,7 +246,7 @@
                 </span>
 
                 <!-- TODO: Update with your arXiv paper ID -->
-                <span class="link-block">
+                <!-- <span class="link-block">
                   <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -253,7 +254,7 @@
                   </span>
                   <span>HuggingFace Space</span>
                 </a>
-              </span>
+              </span> -->
             </div>
           </div>
         </div>
@@ -284,17 +285,19 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We contribute LongT2IBench,
-            which comprises 14K long text-image pairs accompanied
-            by graph-structured human annotations. Given the detailintensive nature of long prompts, we first design a Generate-Refine-Qualify annotation protocol to convert them into textual graph structures that encompass entities, attributes, and
-            relations. Through this transformation, fine-grained alignment annotations are achieved based on these granular elements. Finally, the graph-structed annotations are converted
-            into alignment scores and interpretations to facilitate the design of T2I evaluation models. Based on LongT2IBench,
-            we further propose LongT2IExpert, a LongT2I evaluator
-            that enables multi-modal large language models (MLLMs)
-            to provide both quantitative scores and structured interpretations through an instruction-tuning process with Hierarchical
-            Alignment Chain-of-Thought (CoT). Extensive experiments
-            and comparisons demonstrate the superiority of the proposed
-            LongT2IExpert in alignment evaluation and interpretation.
+            The increasing popularity of long Text-to-Image (T2I) generation has created an urgent need for automatic and interpretable models 
+            that can evaluate the image-text alignment in long prompt scenarios. However, the existing T2I alignment benchmarks predominantly 
+            focus on short prompt scenarios and only provide MOS or Likert scale annotations. This inherent limitation hinders the development 
+            of long T2I evaluators, particularly in terms of the interpretability of alignment. In this study, we contribute 
+            <span style="font-weight: bold;">LongT2IBench</span>, which comprises 14K long text-image pairs accompanied by graph-structured human annotations. 
+            Given the detail-intensive nature of long prompts, we first design a Generate-Refine-Qualify annotation protocol to convert them 
+            into textual graph structures that encompass entities, attributes, and relations. Through this transformation, fine-grained 
+            alignment annotations are achieved based on these granular elements. Finally, the graph-structed annotations are converted into 
+            alignment scores and interpretations to facilitate the design of T2I evaluation models. Based on LongT2IBench, we further propose 
+            <span style="font-weight: bold;">LongT2IExpert</span>, a LongT2I evaluator that enables multi-modal large language models (MLLMs) to provide both quantitative 
+            scores and structured interpretations through an instruction-tuning process with Hierarchical Alignment Chain-of-Thought (CoT). 
+            Extensive experiments and comparisons demonstrate the superiority of the proposed LongT2IExpert in alignment 
+            evaluation and interpretation. The project is at https://github.com/yzc-ippl/LongT2IBench.
           </p>
         </div>
       </div>
@@ -317,12 +320,14 @@
         <img src="static/images/Fig5/LongT2I_04.png" alt="First research result visualization" loading="lazy" style="width: 100%; height: auto; margin: 0 auto; display: block;"/>
         <!-- TODO: Replace with description of this result -->
         <h2 class="subtitle has-text">
-          <span style="font-weight: bold;">Construction of LongPrompt-3K.</span>
-          The long prompts are sampled from three sources: 
-          <span style="font-weight: bold;">Human-Gen</span>, <span style="font-weight: bold;">AI-Gen</span> and <span style="font-weight: bold;">Img-Cap</span>. 
-          These prompts are evenly distributed across different word count ranges, with the number
-          of <span style="font-weight: bold;">entities</span>, <span style="font-weight: bold;">attributes</span>, 
-          and <span style="font-weight: bold;">relationships</span> in each range also being statistically presented.
+          <span style="font-weight: bold;">LongPrompt-3K</span>. 
+          We collect long prompts from human-generated content (<span style="font-weight: bold;">Human-Gen</span>), 
+          AI-generated content (<span style="font-weight: bold;">AI-Gen</span>), 
+          and long image captions (<span style="font-weight: bold;">Img-Cap</span>), 
+          while controlling for length distribution across different word count intervals. 
+          Given the detail-intensive nature of these prompts, 
+          we apply <span style="font-weight: bold;">Textual Graph Transformation</span> to the collected data. 
+          This establishes the foundation for more objective and accurate text-image alignment annotations. 
         </h2>
       </div>
   </div>
@@ -345,10 +350,10 @@
         <img src="static/images/Fig2/page_0001.png" alt="First research result visualization" loading="lazy"/>
         <!-- TODO: Replace with description of this result -->
         <h2 class="subtitle has-text">
-          <span style="font-weight: bold;">Pipline of LongT2IBench</span>. The pipeline consists of three stages: 
-          (a) <span style="font-weight: bold;">Data Preparation.</span> Long prompts are collected from three sources and input into various T2I models to generate images. 
-          (b) <span style="font-weight: bold;">Data Annotation.</span> Long prompts are converted into textual graph structures, and fine-grained image-textual graph alignment annotations are achieved. 
-          (c) <span style="font-weight: bold;">Label Generation.</span> Two categories of labels: quantitative alignment scores and alignment interpretations are produced based on graph-structured human annotations.
+          <span style="font-weight: bold;">LongT2IBench-14K</span>. The pipeline consists of three stages: 
+          (a) Data Preparation. Long prompts are collected from three sources and input into various T2I models to generate images. 
+          (b) Data Annotation. Long prompts are converted into textual graph structures, and fine-grained image-textual graph alignment annotations are achieved. 
+          (c) Label Generation. Two categories of labels: quantitative alignment scores and alignment interpretations are produced based on graph-structured human annotations.
         </h2>
       </div>
       <div id="results-carousel" class="carousel results-carousel">
@@ -357,10 +362,7 @@
          <img src="static/images/Fig5/LongT2I_05.png" alt="First research result visualization" loading="lazy"/>
          <!-- TODO: Replace with description of this result -->
          <h2 class="subtitle has-text">
-           <span style="font-weight: bold;">Alignment Interpretation of LongT2IBench</span>. Leveraging textual graph
-           transformation and image-textual graph alignment annotations, we can derive structured alignment interpretations for
-           each image-text pair, represented as aligned and misaligned
-           entities, attributes, and relations. 
+          Visualization of Entity Alignment, Attribute Alignment, and Relation Alignment in a Long Prompt-Image Pair.
          </h2>
        </div>
   </div>
@@ -383,10 +385,11 @@
         <img src="static/images/Fig5/page_0001.png" alt="First research result visualization" loading="lazy" style="width: 70%; height: auto; margin: 0 auto; display: block;"/>
         <!-- TODO: Replace with description of this result -->
         <h2 class="subtitle has-text">
-          <span style="font-weight: bold;">LongT2IExpert.</span>
+          Overall pipeline of the proposed <span style="font-weight: bold;">LongT2IExpert</span>. 
           A Hierarchical Alignment Chain-of-Thought (CoT) is designed to instruct MLLMs for structured alignment reasoning. 
-          Numerical alignment scores and graph-structured interpretations are utilized to train MLLMs for alignment scoring
-          and interpreting in a multi-task manner.
+          Numerical alignment scores and graph-structured interpretations are utilized to train MLLMs for alignment scoring and interpreting 
+          in a multi-task manner.
+
         </h2>
       </div>
       <div class="item">
@@ -415,7 +418,7 @@
 </section>
 <!-- End image carousel -->
 
-<section class="hero is-small is-light">
+<!-- <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
       <br><br>
@@ -423,19 +426,15 @@
       <br>
       <div class="longt2i-visualization-carousel">
         <div id="js-viz-carousel" class="carousel">
-          <!-- Slide 1 -->
           <div class="item">
             <img src="static/images/appendix/fig_a_1.png" alt="Visual result 1" />
           </div>
-          <!-- Slide 2 -->
           <div class="item">
             <img src="static/images/appendix/fig_a_2.png" alt="Visual result 2" />
           </div>
-          <!-- Slide 3 -->
           <div class="item">
             <img src="static/images/appendix/fig_a_5.png" alt="Visual result 3" />
           </div>
-          <!-- Slide 4 -->
           <div class="item">
             <img src="static/images/appendix/fig_a_6.png" alt="Visual result 4" />
           </div>
@@ -467,11 +466,9 @@
       <br>
       <div class="longt2i-visualization-carousel">
         <div id="js-viz-carousel" class="carousel">
-          <!-- Slide 1 -->
           <div class="item">
             <img src="static/images/appendix/fig_b_1.png" alt="Visual result 1" style="max-height: 900px;"/>
           </div>
-          <!-- Slide 2 -->
           <div class="item">
             <img src="static/images/appendix/fig_b_2.png" alt="Visual result 2" style="max-height: 900px;"/>
           </div>
@@ -487,7 +484,7 @@
       <br><br><br>
     </div>
   </div>
-</section>
+</section> -->
 
 
 
